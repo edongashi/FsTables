@@ -67,7 +67,7 @@ module Sheet =
 
   let withoutc col = filter ((=) col >> not)
 
-  let withoutci (RowIndex c) = filteri (fst >> (=) c >> not)
+  let withoutci (ColumnIndex c) = filteri (fst >> (=) c >> not)
 
   let appendc col = withColsF (Seq.append col)
 
