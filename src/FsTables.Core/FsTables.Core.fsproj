@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Utils.fs" />
+    <Compile Include="Value.fs" />
+    <Compile Include="AttachedData.fs" />
+    <Compile Include="Cell.fs" />
+    <Compile Include="Row.fs" />
+    <Compile Include="Column.fs" />
+    <Compile Include="Sheet.fs" />
+    <Compile Include="Workbook.fs" />
+  </ItemGroup>
+</Project>
