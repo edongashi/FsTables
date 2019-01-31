@@ -71,8 +71,6 @@ module Sheet =
 
   let appendc col = withColsF (Seq.append col)
 
-  // Infrastructure
-
   let force = withRowsF Seq.toArray >> withColsF Seq.toArray
 
-  let forceRec = force // TODO
+  let forceRec = map Row.force >> force
