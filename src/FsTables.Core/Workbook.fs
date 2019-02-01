@@ -55,13 +55,13 @@ module Workbook =
       let! cell = row |> Row.cell (CellIndex c)
       let col = sheet |> Sheet.column (ColumnIndex c)
 
-      return (fun getter -> seq {
+      return fun getter -> seq {
         yield getter cell.Style
         if col.IsSome then yield getter col.Value.CellStyle
         yield getter row.CellStyle
         yield getter sheet.CellStyle
         yield getter wb.CellStyle
-      })
+      }
     }
 
   let rowStyleChain s r wb =
@@ -69,11 +69,11 @@ module Workbook =
       let! sheet = wb |> sheet s
       let! row = sheet |> Sheet.row r
 
-      return (fun getter -> seq {
+      return fun getter -> seq {
         yield getter row.RowStyle
         yield getter sheet.RowStyle
         yield getter wb.RowStyle
-      })
+      }
     }
 
   let columnStyleChain s c wb =
@@ -81,11 +81,11 @@ module Workbook =
       let! sheet = wb |> sheet s
       let! col = sheet |> Sheet.column c
 
-      return (fun getter -> seq {
+      return fun getter -> seq {
         yield getter col.ColumnStyle
         yield getter sheet.ColumnStyle
         yield getter wb.ColumnStyle
-      })
+      }
     }
 
   let force = withSheetsF Seq.toArray

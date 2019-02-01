@@ -7,7 +7,7 @@ module Operators =
   let inline (>>=) x f = Option.bind f x
   let inline (>=>) f1 f2 arg = f1 arg >>= f2
 
-  let private at<'T> index (sequence : seq<'T>) =
+  let at<'T> index (sequence : seq<'T>) =
     match sequence with
     | :? ('T[]) as arr -> arr |> Array.tryItem index
     | :? (IList<'T>) as list ->
