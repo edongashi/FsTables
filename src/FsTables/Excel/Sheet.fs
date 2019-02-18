@@ -1,4 +1,5 @@
-namespace FsTables.Core
+namespace FsTables.Excel
+open FsTables.Common
 
 type SheetName = SheetName of string
 

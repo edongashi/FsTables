@@ -1,4 +1,5 @@
-namespace FsTables.Core
+namespace FsTables.Excel
+open FsTables.Common
 
 type RowHeight = RowHeight of double
 
@@ -12,6 +13,9 @@ type Row =
     Data : AttachedData }
 
 type CellIndex = CellIndex of int
+
+module RowStyle =
+  let empty = { Height = Fallback(RowHeight 15.0) }
 
 module Row =
 
@@ -31,11 +35,11 @@ module Row =
 
   let map f = withCellsF (Seq.map f)
 
-  let mapi f = withCellsF(Seq.indexed >> f >> Seq.map snd)
+  let mapi f = withCellsF (Seq.indexed >> f >> Seq.map snd)
 
   let filter f = withCellsF (Seq.filter f)
 
-  let filteri f = withCellsF(Seq.indexed >> Seq.filter f >> Seq.map snd)
+  let filteri f = withCellsF (Seq.indexed >> Seq.filter f >> Seq.map snd)
 
   let without cell = filter ((=) cell >> not)
 

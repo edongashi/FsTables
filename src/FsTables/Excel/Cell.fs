@@ -1,4 +1,5 @@
-namespace FsTables.Core
+namespace FsTables.Excel
+open FsTables.Common
 
 type CellContent =
   | EmptyContent
@@ -12,3 +13,6 @@ type CellStyle =
 type Cell =
   { Style : CellStyle
     Data : AttachedData }
+
+module CellStyle =
+  let empty = { Content = Inherit }

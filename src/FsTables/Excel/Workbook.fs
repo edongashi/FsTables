@@ -1,4 +1,5 @@
-namespace FsTables.Core
+namespace FsTables.Excel
+open FsTables.Common
 
 type WorkbookName = WorkbookName of string
 
@@ -13,6 +14,16 @@ type Workbook =
 type SheetIndex = SheetIndex of int
 
 module Workbook =
+
+  // Defaults
+
+  let empty =
+    { Name = WorkbookName "Untitled"
+      Sheets = Seq.empty
+      CellStyle = CellStyle.empty
+      RowStyle = RowStyle.empty
+      ColumnStyle = ColumnStyle.empty
+      Data = AttachedData.empty }
 
   // Accessors
 

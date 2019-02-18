@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common/Utils.fs" />
+    <Compile Include="Common/Value.fs" />
+    <Compile Include="Common/AttachedData.fs" />
+    <Compile Include="Excel/Cell.fs" />
+    <Compile Include="Excel/Row.fs" />
+    <Compile Include="Excel/Column.fs" />
+    <Compile Include="Excel/Sheet.fs" />
+    <Compile Include="Excel/Workbook.fs" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

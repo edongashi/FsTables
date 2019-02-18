@@ -283,7 +283,11 @@ _Pvt_Extensions
 
 # Paket dependency manager
 .paket/paket.exe
+.paket/paket.targets
+.paket/Paket.Restore.targets
 paket-files/
+# Temporarily ignore lock file
+paket.lock
 
 # FAKE - F# Make
 .fake/

@@ -1,4 +1,4 @@
-namespace FsTables.Core
+namespace FsTables.Common
 
 type Value<'T> =
   | Inherit
@@ -22,7 +22,7 @@ module Value =
   let resolve defval (ctx : seq<_>) =
     use enumerator = ctx.GetEnumerator()
 
-    let rec walk () =
+    let rec walk() =
       if enumerator.MoveNext() then
         match enumerator.Current with
         | Inherit -> walk()
