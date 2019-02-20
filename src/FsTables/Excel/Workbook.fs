@@ -102,3 +102,18 @@ module Workbook =
   let force = withSheetsF Seq.toArray
 
   let forceRec = map Sheet.forceRec >> force
+
+  open ClosedXML.Excel
+  open System.IO
+
+  let internal fromXL name (wb : IXLWorkbook) =
+    let sheets = wb.Worksheets
+                 |> Seq.map Sheet.fromXL
+                 |> Seq.cache
+    { empty with Name = WorkbookName name
+                 Sheets = sheets }
+
+  let load path =
+    let name = Path.GetFileNameWithoutExtension path
+    let wb = new XLWorkbook(path, XLEventTracking.Disabled)
+    fromXL name wb

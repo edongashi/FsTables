@@ -4,13 +4,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Common/Utils.fs" />
-    <Compile Include="Common/Value.fs" />
     <Compile Include="Common/AttachedData.fs" />
+    <Compile Include="Styling/Selector.fs" />
+    <Compile Include="Styling/JsonNode.fs" />
+    <Compile Include="Excel/Value.fs" />
     <Compile Include="Excel/Cell.fs" />
     <Compile Include="Excel/Row.fs" />
     <Compile Include="Excel/Column.fs" />
     <Compile Include="Excel/Sheet.fs" />
     <Compile Include="Excel/Workbook.fs" />
+    <Compile Include="Documents/Project.fs" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

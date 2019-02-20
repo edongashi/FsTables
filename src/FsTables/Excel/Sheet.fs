@@ -18,6 +18,17 @@ type ColumnIndex = ColumnIndex of int
 
 module Sheet =
 
+  // Defaults
+
+  let empty =
+    { Name = SheetName "Sheet"
+      Rows = Seq.empty
+      Columns = Seq.empty
+      CellStyle = CellStyle.empty
+      RowStyle = RowStyle.empty
+      ColumnStyle = ColumnStyle.empty
+      Data = AttachedData.empty }
+
   // Accessors
 
   let row (RowIndex r) sheet = sheet.Rows @? r
@@ -75,3 +86,9 @@ module Sheet =
   let force = withRowsF Seq.toArray >> withColsF Seq.toArray
 
   let forceRec = map Row.force >> force
+
+  open ClosedXML.Excel
+
+  // Excel
+  let internal fromXL (sheet : IXLWorksheet) =
+    empty
